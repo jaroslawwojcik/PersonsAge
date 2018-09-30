@@ -13,7 +13,8 @@ namespace PeopleAge.Factories
             Console.WriteLine("Please enter name: ");
             var name = Console.ReadLine();
             Console.WriteLine("Please enter age");
-            var age = int.Parse(Console.ReadLine());
+            var ageAsString = Console.ReadLine();
+            var age = ValidateAge(ageAsString);
 
             return new Person
             {
@@ -21,5 +22,16 @@ namespace PeopleAge.Factories
                 Age = age
             };
         }
-    }
+        private int ValidateAge(string ageAsString)
+        {
+            int age;
+            while (!int.TryParse(ageAsString, out age))
+            {
+                Console.WriteLine("Not a valid number, try again.");
+
+                ageAsString = Console.ReadLine();
+            }
+            return age;
+        }
+}
 }

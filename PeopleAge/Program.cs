@@ -54,9 +54,9 @@ namespace PeopleAge
 
         private static void PrintOccuranceOfGivenAge(ICollection<Person> collection, int age)
         {
-            var collectionOfPersons = collection.FirstOrDefault(x=> x.Age == age);
+            var collectionOfPersons = collection.Any(x=> x.Age == age);
             
-            if (collectionOfPersons != null)
+            if (collectionOfPersons)
             {
                 Console.WriteLine("true");
             }
@@ -72,7 +72,7 @@ namespace PeopleAge
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1) Add person");
             Console.WriteLine("2) Display persons older than 18 or equal (ascending)");
-            Console.WriteLine("3) Chceck if there is a person with given name");
+            Console.WriteLine("3) Chceck if there is a person with given age");
             Console.WriteLine("4) Print all persons");
                 
         }
